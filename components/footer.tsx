@@ -117,7 +117,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" />
-                <span>info@thenightcrew.com</span>
+                <span>Thenightcreww@gmail.com</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 text-primary" />
@@ -128,8 +128,6 @@ export function Footer() {
             <div className="mt-4 pt-4 border-t border-border">
               <h4 className="font-medium text-foreground mb-2 text-sm">Business Hours</h4>
               <div className="space-y-1 text-xs text-muted-foreground">
-                <p>Mon-Fri: 9 AM - 6 PM</p>
-                <p>Sat-Sun: 10 AM - 4 PM</p>
                 <p className="text-primary font-medium">24/7 Emergency Support</p>
               </div>
             </div>
