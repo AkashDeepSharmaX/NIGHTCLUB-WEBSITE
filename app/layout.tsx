@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Space_Grotesk, DM_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -45,8 +45,14 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  viewport: "width=device-width, initial-scale=1",
+ //  viewport: "width=device-width, initial-scale=1",
+
 }
+ // I'm moving the viewport into its own export / to clear the error message cause next 13+ doesnt accept viewport inside metadata
+ export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+ }
 
 export default function RootLayout({
   children,
