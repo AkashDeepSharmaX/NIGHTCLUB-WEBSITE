@@ -186,7 +186,7 @@ export function ContactForm() {
       </div>
 
       {/* Contact Form */}
-      <div className="lg:col-span-2">
+      <div className="lg:col-span-2"> {/* ADDED NAMES TO ALL INPUT FIELD TO STOP THROWING ERRORS ON CHROME BROWSER DEV TOOL */}
         <Card>
           <CardHeader>
             <CardTitle className="text-2xl font-bold text-foreground">Send us a Message</CardTitle>
@@ -202,9 +202,11 @@ export function ContactForm() {
                   <Label htmlFor="name">Full Name *</Label>
                   <Input
                     id="name"
+                    name="name" // added name
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
                     placeholder="Enter your full name"
+                    autoComplete="name" // added better auto complete
                     required
                   />
                 </div>
@@ -214,6 +216,7 @@ export function ContactForm() {
                   <Input
                     id="email"
                     type="email"
+                     name="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
                     placeholder="Enter your email"
@@ -228,6 +231,7 @@ export function ContactForm() {
                   <Input
                     id="phone"
                     type="tel"
+                      name="phone"
                     value={formData.phone}
                     onChange={(e) => handleInputChange("phone", e.target.value)}
                     placeholder="Enter your phone number"
@@ -236,7 +240,9 @@ export function ContactForm() {
 
                 <div className="space-y-2">
                   <Label htmlFor="eventType">Event Type</Label>
-                  <Select value={formData.eventType} onValueChange={(value) => handleInputChange("eventType", value)}>
+                  <Select
+                  name="eventType"
+                   value={formData.eventType} onValueChange={(value) => handleInputChange("eventType", value)}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select event type" />
                     </SelectTrigger>
@@ -266,7 +272,7 @@ export function ContactForm() {
 
                 <div className="space-y-2">
                   <Label htmlFor="groupSize">Group Size</Label>
-                  <Select value={formData.groupSize} onValueChange={(value) => handleInputChange("groupSize", value)}>
+                  <Select name="groupSize" value={formData.groupSize} onValueChange={(value) => handleInputChange("groupSize", value)}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select group size" />
                     </SelectTrigger>
@@ -285,6 +291,7 @@ export function ContactForm() {
                 <Label htmlFor="message">Message *</Label>
                 <Textarea
                   id="message"
+                  name="message" //added mane
                   value={formData.message}
                   onChange={(e) => handleInputChange("message", e.target.value)}
                   placeholder="Tell us about your event, preferences, or any special requirements..."
