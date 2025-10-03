@@ -5,7 +5,7 @@ import { useState,} from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Menu, X, Search } from "lucide-react"
+import { Menu, X, Search, LogIn} from "lucide-react"
 
 
 export function Navigation() {
@@ -109,6 +109,14 @@ export function Navigation() {
                 </Button>
               )}
             </div>
+
+            {/* Login Icon */}
+            <Link href="/login">
+            <Button variant="ghost" size="sm" className="hover:bg-muted flex items-center gap-2">
+              <LogIn className="h-5 w-5"/>
+              <span className="hidden md:inline">Login</span>
+            </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -175,6 +183,11 @@ export function Navigation() {
               >
                 Dashboard
               </Link>
+                <Link
+                href="/login"
+                className="block px-3 py-3 text-foreground hover:bg-muted transition-colors font-medium uppercase text-sm tracking-wide"
+                onClick={toggleMenu}
+              >login</Link>
             </div>
           </div>
         )}

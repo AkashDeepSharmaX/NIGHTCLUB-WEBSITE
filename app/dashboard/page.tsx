@@ -139,7 +139,7 @@ const addPost = () => {
         
            {activeTap === "events" && (
              <EventSection
-            events={events}
+            events={events} 
             newEvent={newEvent}
             setNewEvent={setNewEvent}
             addEvent={addEvent}

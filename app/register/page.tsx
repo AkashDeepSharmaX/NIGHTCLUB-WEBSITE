@@ -21,27 +21,43 @@ export default function LoginPage() {
         <div className="w-full max-w-md p-8 space-y-6 bg-gray-900 rounded-2xl shadow-xl border border-gray-700">
             {/* Top --- Title */}
         <div className="text-center">
-            <h2 className="text-2xl font-bold text-center">Sign in to your account</h2>
-            <p className="mt-2 text-sm text-gray-400">Dont have an account?{""} 
-                <Link href="/register" className="text-indigo-400 hover:underline">Create one</Link>
+            <h2 className="text-2xl font-bold text-center">Create An Account</h2>
+            <p className="mt-2 text-sm text-gray-400">Already have an account?{""} 
+                <Link href="/login" className="text-indigo-400 hover:underline">Sign In</Link>
             </p>
         </div>
 
 
           {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
+                <div className="grid grid-cols-2 gap-3">
                 <Input
-                type="email"
-                placeholder="Email"
+                type="text"
+                placeholder="First Name"
                 value={email}
                 onChange={(e)=> setEmail(e.target.value)}
                 className="w-full  border border-gray-600 bg-gray-800 text-white rounded-lg focus:border-indigo-500 placeholder
                  focus:ring-indigo-500"
                 />
-                </div>
-                <div>
+            
              <Input
+                type="text"
+                placeholder="Last Name"
+               
+                className="w-full  border border-gray-600 bg-gray-800 text-white rounded-lg focus:border-indigo-500 placeholder
+                 focus:ring-indigo-500"
+                />
+                </div>
+
+                <Input
+                type="email"
+                placeholder="Email"
+            
+                className="w-full  border border-gray-600 bg-gray-800 text-white rounded-lg focus:border-indigo-500 placeholder
+                 focus:ring-indigo-500"
+                />
+
+                 <Input
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -49,20 +65,19 @@ export default function LoginPage() {
                 className="w-full  border border-gray-600 bg-gray-800 text-white rounded-lg focus:border-indigo-500 placeholder
                  focus:ring-indigo-500"
                 />
-                </div>
 
                 <div className="flex items-center justify-between">
                     <label className="flex items-center gap-2 text-sm text-gray-400">
                         <Checkbox className="border-gray-600 data-[state=checked]:bg-indigo-500 bg-white"/>
-                        Remember me
+                        I agree to the {""}
                     </label>
-                    <Link href="#" className="text-sm text-indigo-400 hover:underline">Forgot Password?</Link>
+                    <a href="#" className="text-sm text-indigo-400 hover:underline">Terms & Conditions</a>
                 </div>
 
                 <Button
                 type="submit"
                 className="w-full rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white py-2">
-                    Sign In
+                    Create Account
                 </Button>
             </form>
 
