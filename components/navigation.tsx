@@ -57,6 +57,13 @@ export function Navigation() {
             >
               BAR
             </Link>
+             <Link
+              href="/club-section"
+              className="text-foreground hover:text-muted-foreground transition-colors duration-300 font-medium uppercase text-sm tracking-wide
+                  border-b-2 border-transparent hover:border-pink-300 transition duration-300"
+            >
+            Club Section
+            </Link>
             <Link
               href="/night-crew"
               className="text-foreground hover:text-muted-foreground transition-colors duration-300 font-medium uppercase text-sm tracking-wide
@@ -161,6 +168,13 @@ export function Navigation() {
                 onClick={toggleMenu}
               >
                 BAR
+              </Link>
+              <Link
+                href="/club-section"
+                className="block px-3 py-3 text-foreground hover:bg-muted transition-colors font-medium uppercase text-sm tracking-wide"
+                onClick={toggleMenu}
+              >
+              Club Section
               </Link>
               <Link
                 href="/night-crew"

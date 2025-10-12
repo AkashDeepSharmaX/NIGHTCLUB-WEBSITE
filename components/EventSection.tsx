@@ -45,6 +45,7 @@ export default function EventSection({events, newEvent, setNewEvent, addEvent}: 
                   <input 
                   type="text"
                   className="border p-2 rounded col-span-2"
+                  placeholder="Location"
                   value={newEvent.location}
                   onChange={(e)=> setNewEvent({...newEvent, location: e.target.value})}
                     />
