@@ -6,17 +6,25 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Menu, X, Search, LogIn} from "lucide-react"
+import { useAuth } from "@/hooks/useAuth"
+import { useRouter, usePathname } from "next/navigation"
 
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const {isAuthenticated, logout} = useAuth();
+  const router =useRouter();
+  const pathname = usePathname();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
   const toggleSearch = () => setIsSearchOpen(!isSearchOpen)
 
-
- 
+const handleLogout = () => {
+  logout();
+  router.push("/login")
+}
+ const isDashboardPage = pathname?.startsWith("/dashboard");
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
@@ -79,14 +87,7 @@ export function Navigation() {
               GALLERY
             </Link>
 
-               <Link
-                href="/dashboard"
-                className="block px-3 py-3 text-foreground hover:bg-muted transition-colors font-medium uppercase text-sm tracking-wide"
-                onClick={toggleMenu}
-              >
-                Dashboard
-              </Link>
-
+          
                 <Link 
               href="/contact"
               className="text-foreground hover:text-muted-foreground transition-colors duration-300 font-medium uppercase text-sm tracking-wide
@@ -94,6 +95,16 @@ export function Navigation() {
             >
               CONTACT 
             </Link>
+
+            {/* Only shows dasboard if Logged in */}
+            {isAuthenticated && !isDashboardPage &&(
+                 <Link
+                href="/dashboard"
+                className="block px-3 py-3 text-foreground hover:bg-muted transition-colors font-medium uppercase text-sm tracking-wide"
+              >
+                Dashboard
+              </Link>
+            )}
           </div>
 
           <div className="hidden lg:flex items-center space-x-4">
@@ -116,14 +127,27 @@ export function Navigation() {
                 </Button>
               )}
             </div>
-
-            {/* Login Icon */}
+          {!isDashboardPage && (
+            <div>
+          {/* if logged in show logout */}
+          {isAuthenticated ? (
+            <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleLogout}
+            className="hover:bg-muted text-red-400"
+            >Logout</Button>
+          ) : (
+          
             <Link href="/login">
             <Button variant="ghost" size="sm" className="hover:bg-muted flex items-center gap-2">
               <LogIn className="h-5 w-5"/>
               <span className="hidden md:inline">Login</span>
             </Button>
             </Link>
+          )}
+         </div>
+          )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -189,13 +213,6 @@ export function Navigation() {
                 onClick={toggleMenu}
               >
                 GALLERY
-              </Link>
-                <Link
-                href="/dashboard"
-                className="block px-3 py-3 text-foreground hover:bg-muted transition-colors font-medium uppercase text-sm tracking-wide"
-                onClick={toggleMenu}
-              >
-                Dashboard
               </Link>
                 <Link
                 href="/login"

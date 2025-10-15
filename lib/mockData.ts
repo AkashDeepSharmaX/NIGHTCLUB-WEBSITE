@@ -28,11 +28,15 @@ export type FeedPost = {
 }
 
 export type Booking = {
-    id?: string;
+    id: string;
+    date?:string;
+    time?: string;
+    guest?:string
+    notes?:string;
     eventId: string;
     guestName: string;
     email?: string;
-    status: 'pending' | 'accepted' | 'rejected' | 'checked in';
+    status: 'pending' | 'accepted' | 'rejected' | 'check in';
 }
 
  export const mockEvents: EventItem[] = [
@@ -78,12 +82,20 @@ export type Booking = {
  id: crypto.randomUUID(),
  guestName: "Hadshi Raque",
  eventId: "Summer party",
- status: "pending",
+ email: "Hadhi@gmail.com",
+ time: "8:00",
+ guest: "3",
+ notes: "VIP Areas In Front",
+  status: "pending",
  },
  {
  id: crypto.randomUUID(),
  guestName: "Maurine Smith",
  eventId: "Halloween Bash",
+ email: "rine@gmail.com",
+ time: "4:30",
+ guest: "20",
+ notes: "Get Together",
  status: "accepted", 
  },
- ]
+ ] 
