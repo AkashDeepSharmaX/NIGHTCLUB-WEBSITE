@@ -3,6 +3,7 @@
 import React from "react";
 import { useEffect, useState, useMemo } from "react";
 import { clubsDatas } from "@/src/ClubData/clubsDatas";
+import { useRouter } from "next/navigation";
 
 interface Club {
     id: string;
@@ -15,6 +16,8 @@ interface Club {
 }
 
 export default function ClubDetails() {
+    const router = useRouter();
+
     const [clubs, setClubs] = useState<Club[]>([]);
     const [search, setSearch] = useState("");
     const [locationFilter, setLocationFilter] = useState("all");
@@ -122,7 +125,7 @@ export default function ClubDetails() {
                                 </div>
                                 <p className="text-gray-300 text-sm mb-3 line-clamp-2">{club.notes || "A Vibrant place to relax and enjoy"}</p>
 
-                                <button className="w-full bg-purple-600 hover:bg-purple-700 transition-all py-2 rounded-lg text-white
+                                <button onClick={()=> router.push(`/payment/${club.id}`)} className="w-full bg-purple-600 hover:bg-purple-700 transition-all py-2 rounded-lg text-white
                                 font-medium">View Details</button>
                             </div>
                      </div> 
