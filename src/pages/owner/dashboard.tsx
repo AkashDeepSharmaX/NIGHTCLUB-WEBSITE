@@ -1,9 +1,9 @@
-"use Client"
+ "use client"
 import React from "react"
 import RequiredRole from "@/components/RequiredRole"
 import UploadForm from "@/components/UploadForm"
 
-export default function OwnerDashboardPage() {
+const OwnerDashboardPage = () => {
     return (
         <RequiredRole role="owner">
             <div style={{padding: 20}}>
@@ -20,6 +20,7 @@ export default function OwnerDashboardPage() {
                                   <UploadForm collectionName="videos  "/>
                 </div>
             </div>
-        </RequiredRole>
+        </RequiredRole> 
     )
-}
+} 
+export default OwnerDashboardPage;
