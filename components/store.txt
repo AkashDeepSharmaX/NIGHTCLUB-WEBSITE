@@ -165,7 +165,7 @@ import { BarItem, NightCrewMember, MusicTrack, MediaItem, EventItem } from "@/sr
 interface Props {
     collectionName: string;
     fields?: string[];
-}
+} 
 
 export default function UploadForm({collectionName} : Props) {
  const [title, setTitle] = useState("");
