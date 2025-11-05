@@ -1,17 +1,13 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Space_Grotesk, DM_Sans } from "next/font/google"
+import {  DM_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Suspense } from "react"
 import { AuthProvider } from "@/components/AuthProvider"
 import "./globals.css"
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-})
+// Load Google Fonts
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -46,31 +42,37 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
- //  viewport: "width=device-width, initial-scale=1",
-
 }
- // I'm moving the viewport into its own export / to clear the error message cause next 13+ doesnt accept viewport inside metadata
- export const viewport: Viewport = {
+
+export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
- }
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans ${spaceGrotesk.variable} ${dmSans.variable} antialiased`}>
+      {/* Apply one font globally — e.g., DM Sans */}
+      <body className={`${dmSans.className} antialiased`}>
         <Suspense
           fallback={
             <div className="min-h-screen bg-background flex items-center justify-center">
-              <div className="animate-pulse-glow text-primary text-2xl font-bold">THE NIGHT CREW</div>
+              <div className="animate-pulse-glow text-primary text-2xl font-bold">
+                THE NIGHT CREW
+              </div>
             </div>
           }
         >
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
             <AuthProvider>{children}</AuthProvider>
           </ThemeProvider>
         </Suspense>
