@@ -36,7 +36,7 @@ export function Navigation() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           <Link href="/" className="flex items-center space-x-2 group">
-            <div className="text-lg md:text-xl font-semibold text-foreground group-hover:opacity-80 transition-opacity duration-300 tracking-wider">
+            <div className="text-sm md:text-xl font-semibold text-foreground group-hover:opacity-80 transition-opacity duration-300 tracking-wider">
               THE NIGHT CREW
             </div>
           </Link>
@@ -64,7 +64,7 @@ export function Navigation() {
             {isAuthenticated && !isDashboardPage && (
               <Link
                 href="/dashboard"
-                className="text-sm font-medium uppercase tracking-wide text-foreground hover:text-muted-foreground border-b-2 border-transparent hover:border-pink-300 transition duration-300"
+                className="text-sm font-small uppercase tracking-wide text-foreground hover:text-muted-foreground border-b-2 border-transparent hover:border-pink-300 transition duration-300"
               >
                 Dashboard
               </Link>
@@ -90,13 +90,13 @@ export function Navigation() {
                   href="/signin"
                   className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs transition-all"
                 >
-                  Sign In
+                  SignIn
                 </Link>
                 <Link
                   href="/signup"
                   className="bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded text-xs transition-all"
                 >
-                  Sign Up
+                  SignUp
                 </Link>
               </>
             )}
@@ -152,7 +152,7 @@ export function Navigation() {
                       className="hover:bg-muted flex items-center gap-1 text-xs"
                     >
                       <LogIn className="h-4 w-4" />
-                      <span className="hidden md:inline">Admin Log</span>
+                      <span className="hidden md:inline"></span>
                     </Button>
                   </Link>
                 )}
@@ -188,9 +188,7 @@ export function Navigation() {
                 "EVENTS",
                 "BAR",
                 "CLUB SECTION",
-                "NIGHT CREW",
                 "GALLERY",
-                "ADMIN-LOG",
               ].map((label, i) => (
                 <Link
                   key={i}
